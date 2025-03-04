@@ -18,7 +18,7 @@ class AWSController {
 
     async uploadFile(req, res) {
         try {
-            const { file } = req;
+            const { file } = req.body;
             if (!file) {
                 return res.status(400).json({ error: "Nenhum arquivo enviado." });
             }
@@ -32,7 +32,7 @@ class AWSController {
 
     async downloadFile(req, res) {
         try {
-            const { referencia } = req.body;
+            const { referencia } = req.params;
             if (!referencia) {
                 return res.status(400).json({ error: "A referência da imagem é obrigatória." });
             }

@@ -1,9 +1,10 @@
 const AWS = require('aws-sdk');
+const UUID = require('uuid');
 
 AWS.config.update({
     region: 'us-east-1',
-    accessKeyId: 'AKIA5RRHCKYZ3ZDRWAA6',
-    secretAccessKey: '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'
+    accessKeyId: '',
+    secretAccessKey: ''
 });
 
 const s3 = new AWS.S3();
@@ -27,9 +28,8 @@ class AWSRepository {
         try {
             const params = {
                 Bucket: 'bucketmi74',
-                Key: file.originalname,
-                Body: file.buffer,
-                ContentType: file.mimetype
+                Key: UUID.v4(),
+                Body: file,
             };
 
             const resultado = await s3.upload(params).promise();
