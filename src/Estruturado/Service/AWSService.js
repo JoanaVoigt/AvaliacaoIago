@@ -7,12 +7,12 @@ class AWSService {
         return await AWSRepository.buscarImagem(referencia);
     }
 
-    async uploadImagem(file) {
-        return await AWSRepository.uploadImagem(file);
+    async uploadFile(file) {
+        return await AWSRepository.uploadFile(file);
     }
 
-    async downloadImagem(referencia) {
-        const fileData = await AWSRepository.downloadImagem(referencia);
+    async downloadFile(referencia) {
+        const fileData = await AWSRepository.downloadFile(referencia);
 
         const downloadsPath = path.join(require('os').homedir(), 'Downloads');
         const filePath = path.join(downloadsPath, referencia);

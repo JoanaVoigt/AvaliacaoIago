@@ -23,7 +23,7 @@ class AWSRepository {
         }
     }
 
-    async uploadImagem(file) {
+    async uploadFile(file) {
         try {
             const params = {
                 Bucket: 'bucketmi74',
@@ -39,7 +39,7 @@ class AWSRepository {
         }
     }
 
-    async downloadImagem(referencia) {
+    async downloadFile(referencia) {
         try {
             const params = {
                 Bucket: 'bucketmi74',

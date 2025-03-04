@@ -16,28 +16,28 @@ class AWSController {
         }
     }
 
-    async uploadImagem(req, res) {
+    async uploadFile(req, res) {
         try {
             const { file } = req;
             if (!file) {
                 return res.status(400).json({ error: "Nenhum arquivo enviado." });
             }
 
-            const resultado = await AWSService.uploadImagem(file);
+            const resultado = await AWSService.uploadFile(file);
             res.json(resultado);
         } catch (error) {
             res.status(400).json({ error: error.message });
         }
     }
 
-    async downloadImagem(req, res) {
+    async downloadFile(req, res) {
         try {
             const { referencia } = req.body;
             if (!referencia) {
                 return res.status(400).json({ error: "A referência da imagem é obrigatória." });
             }
 
-            const filePath = await AWSService.downloadImagem(referencia);
+            const filePath = await AWSService.downloadFile(referencia);
 
             res.download(filePath, (err) => {
                 if (err) {
