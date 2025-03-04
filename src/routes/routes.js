@@ -20,7 +20,6 @@ router.get('/usuario/:id', UserControllerNova.buscarUsuario)
 router.put('/editarUsuario/:id', UserControllerNova.atualizarUsuario)
 router.delete('/apagarUsuario/:id', UserControllerNova.removerUsuario);
 
-router.get('/aws', AWSController.buscarImagem)
 router.post('/upload', upload.single('file'), AWSController.uploadFile);
 router.get('/download/:referencia', AWSController.downloadFile);
 

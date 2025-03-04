@@ -3,18 +3,6 @@ const path = require('path');
 const fs = require('fs');
 
 class AWSController {
-    async buscarImagem(req, res) {
-        try {
-            const { referencia } = req.body;
-            if (!referencia) {
-                return res.status(400).json({ error: "A referência da imagem é obrigatória." });
-            }
-            const resultado = await AWSService.buscarImagem(referencia);
-            res.json(resultado);
-        } catch (error) {
-            res.status(400).json({ error: error.message });
-        }
-    }
 
     async uploadFile(req, res) {
         try {

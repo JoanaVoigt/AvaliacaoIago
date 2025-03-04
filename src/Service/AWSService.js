@@ -3,10 +3,6 @@ const path = require('path');
 const fs = require('fs');
 
 class AWSService {
-    async buscarImagem(referencia) {
-        return await AWSRepository.buscarImagem(referencia);
-    }
-
     async uploadFile(file) {
         return await AWSRepository.uploadFile(file);
     }
