@@ -6,17 +6,23 @@ class AWSController {
 
     async uploadFile(req, res) {
         try {
-            const { file } = req.body;
+            const { file, usuario_id } = req.body; 
+    
             if (!file) {
                 return res.status(400).json({ error: "Nenhum arquivo enviado." });
             }
-
-            const resultado = await AWSService.uploadFile(file);
+    
+            if (!usuario_id) {
+                return res.status(400).json({ error: "Usuário não encontrado." });
+            }
+    
+            const resultado = await AWSService.uploadFile(file, usuario_id);  
             res.json(resultado);
         } catch (error) {
             res.status(400).json({ error: error.message });
         }
     }
+    
 
     async downloadFile(req, res) {
         try {

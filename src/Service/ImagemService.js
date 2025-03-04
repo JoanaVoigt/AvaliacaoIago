@@ -2,8 +2,8 @@ const ImagemRepository = require('../Repository/ImagemRepository');
 const Imagem = require('../Entity/Imagem');
 
 class ImagemService {
-    async criarNovaImagem(referencia, titulo) {
-        const novaImagem = new Imagem(referencia, titulo);
+    async criarNovaImagem(referencia, usuario_id) {
+        const novaImagem = new Imagem(referencia, usuario_id); 
         return await ImagemRepository.criarImagem(novaImagem);
     }
 
@@ -15,11 +15,10 @@ class ImagemService {
         return await ImagemRepository.buscarImagem(id);
     }
 
-    async atualizarImagem(id, referencia, titulo) {
-        const dadosAtualizados = { referencia, titulo };
+    async atualizarImagem(id, referencia) {
+        const dadosAtualizados = { referencia };  
         return await ImagemRepository.atualizarImagem(id, dadosAtualizados);
     }
-
 }
 
 module.exports = new ImagemService();

@@ -3,8 +3,8 @@ const UUID = require('uuid');
 
 AWS.config.update({
     region: 'us-east-1',
-    accessKeyId: '',
-    secretAccessKey: ''
+    accessKeyId: 'AKIA5RRHCKYZ3ZDRWAA6',
+    secretAccessKey: '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'
 });
 
 const s3 = new AWS.S3();
